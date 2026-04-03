@@ -10,7 +10,7 @@ class MenuCredits(Menu):
     def show_credits(self):
         self._affiche("Credits", [
             "Projet : MNA Calculator",
-            "Auteur : Ducourtioux",
+            "Auteur : Ant3ch",
             "Version : 1.0",
             "",
             "Outil pedagogique d'analyse numerique",
