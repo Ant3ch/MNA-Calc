@@ -14,9 +14,9 @@ class MenuExplications(Menu):
     def aller_point_fixe(self):
         self.menu_manager.switch_menu("explications_point_fixe")
 
- 
+
 class MenuExplicationsIntegration(Menu):
-    
+
     def __init__(self):
         Menu.__init__(self)
         self.add_option(MenuItem("Riemann", self.exp_riemann))
@@ -24,6 +24,7 @@ class MenuExplicationsIntegration(Menu):
         self.add_option(MenuItem("Milieu",  self.exp_milieu))
         self.add_option(MenuItem("Simpson", self.exp_simpson))
         self.add_option(MenuItem("Romberg", self.exp_romberg))
+
     def _affiche(self, titre, lignes):
         print("\n--- " + titre + " ---")
         i = 0
@@ -57,15 +58,26 @@ class MenuExplicationsIntegration(Menu):
 
     def exp_simpson(self):
         self._affiche("Simpson", [
-            "Combine trapeze+milieu",
+            "Combine trap+milieu",
             "Precision O(h^4)"
         ])
 
     def exp_romberg(self):
-        self._affiche("Romberg", [
-            "Extrapolation",
-            "Tres precis"
+        self._affiche("Romberg 1/2", [
+            "Trapeze avec",
+            "1,2,4,8.. pts",
+            "R[0][0]=T(1pt)",
+            "R[1][0]=T(2pts)",
+            "etc..."
         ])
+        self._affiche("Romberg 2/2", [
+            "Extrapolation :",
+            "R[i][j]=R[i][j-1]",
+            "+ (R[i][j-1]",
+            " -R[i-1][j-1])",
+            "/ (4^j - 1)"
+        ])
+
 
 class MenuExplicationsPointFixe(Menu):
     def __init__(self):
@@ -76,6 +88,9 @@ class MenuExplicationsPointFixe(Menu):
         self.add_option(MenuItem("Contractante def", self.exp_contractantedef))
         self.add_option(MenuItem("Contractante critere", self.exp_contractantecritere))
         self.add_option(MenuItem("Repulsif", self.exp_repulsif))
+        self.add_option(MenuItem("Accr. finis egal.", self.exp_accr_egal))
+        self.add_option(MenuItem("Accr. finis ineg.", self.exp_accr_ineg))
+
     def _affiche(self, titre, lignes):
         print("\n--- " + titre + " ---")
         i = 0
@@ -83,28 +98,38 @@ class MenuExplicationsPointFixe(Menu):
             print(lignes[i])
             i += 1
         input("\n[Entree]")
+
     def exp_point_fixe(self):
         self._affiche("Point fixe", [
             "x(n+1)=g(x)",
             "con:g C0,CV si |g'|<1",
-            "Con:g([a,b])∈[a,b]=>CV "
+            "Con:g([a,b])in[a,b]",
+            "=> CV"
         ])
 
     def exp_newton(self):
         self._affiche("Newton", [
             "x(n+1)=x-f/f'",
-            "f C2 , x0 proche avec corde",
+            "f C2, x0 proche",
+            "avec corde",
             "f'!=0",
-            "f(a)*f(b)<0 idealement",
+            "f(a)*f(b)<0"
         ])
+
     def exp_corde(self):
-        self._affiche("Corde", [
-            "Method des cordes",
-            "x_{n+1} = xn - f(xn)*(xn - x_{n-1})"
-            "/(f(xn) - f(x_{n-1}))",
-            "f C1, exist f(a) = 0 et f'(a) != 0",
-            "idéalement f(x0)*f(x1)<0, sinon c lent "
+        self._affiche("Corde 1/2", [
+            "x_{n+1} = xn -",
+            "f(xn)*(xn-x_{n-1})",
+            "/(f(xn)-f(x_{n-1}))",
         ])
+        self._affiche("Corde 2/2", [
+            "f C1",
+            "exist f(a)=0",
+            "f'(a)!=0",
+            "f(x0)*f(x1)<0",
+            "sinon lent"
+        ])
+
     def exp_contractantedef(self):
         self._affiche("Contractante", [
             "|g(x)-g(y)|<=k|x-y|",
@@ -125,4 +150,20 @@ class MenuExplicationsPointFixe(Menu):
             "|g'(x)|>1",
             "instable",
             "diverge"
+        ])
+
+    def exp_accr_egal(self):
+        self._affiche("Accr. finis egal.", [
+            "f C1 sur [a,b]",
+            "exist c in ]a,b[",
+            "f(b)-f(a)",
+            "= f'(c)*(b-a)"
+        ])
+
+    def exp_accr_ineg(self):
+        self._affiche("Accr. finis ineg.", [
+            "f C1 sur [a,b]",
+            "M=max|f'| sur[a,b]",
+            "|f(b)-f(a)|",
+            "<= M*|b-a|"
         ])
