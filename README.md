@@ -44,7 +44,7 @@ Fully text-menu driven, keyboard-navigable:
 
 ## Expected inputs
 
-**Integration**: a function, an interval $[a, b]$, a number of subdivisions $n$
+**Integration**: a function, an interval $[a, b]$ (support math expresssion such as 1/2, pi/3...), a number of subdivisions $n$
 
 **Root-finding**: a function (or iteration function), a starting point $x_0$, a tolerance, and a max iteration count
 
