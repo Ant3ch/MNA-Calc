@@ -12,17 +12,13 @@ class MenuCredits(Menu):
             "Projet : MNA Calculator",
             "Auteur : Ant3ch",
             "Version : 1.0",
-            "",
-            "Outil pedagogique d'analyse numerique",
-            "Integration numerique, point fixe, Newton, corde",
-            "",
-            "Developpe pour Python / calculatrice Casio",
-            "2026",
+            "date : 03/04/2026"
         ])
 
     def show_github(self):
         self._affiche("GitHub", [
-            "https://github.com/Ant3ch",
+            "https://github.com/",
+            "Ant3ch",
         ])
 
     def _affiche(self, titre, lignes):
