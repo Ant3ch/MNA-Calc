@@ -60,16 +60,18 @@ Fully text-menu driven, keyboard-navigable:
 ```
 
 ## Project structure
+```
 MNA Calc/
-├── main.py                 # Entry point
-├── menu_core.py            # Menu management
-├── menu_principal.py       # Main menu
-├── menu_integration.py     # Integration methods
-├── menu_point_fixe.py      # Root-finding methods
-├── menu_explications.py    # Algorithm explanations
-├── credit.py               # Credits
-├── utils.py                # Utility functions
+├── main.py                   # Entry point
+├── menu_core.py              # Menu management
+├── menu_principal.py         # Main menu
+├── menu_integration.py       # Integration methods
+├── menu_point_fixe.py        # Root-finding methods
+├── menu_explications.py      # Algorithm explanations
+├── credit.py                 # Credits
+├── utils.py                  # Utility functions
 └── LICENSE
+```
 
 ## Compatibility
 
